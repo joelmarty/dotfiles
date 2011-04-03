@@ -28,8 +28,7 @@ plugins=(git command-not-found vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/joel/Programmes/gsutil:/home/joel/Softs/Java/play-1.1
-
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=10000
@@ -79,3 +78,6 @@ function portal () {
       apparix --add-portal;
    fi
 }
+
+# personal bin dir
+export PATH=${PATH}:/home/joel/Softs/bin
