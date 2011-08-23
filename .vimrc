@@ -1,13 +1,6 @@
 " add support for custom .asc asciidoc files used at marakana
 au! BufRead,BufNewFile *.asc	setfiletype asciidoc
 
-" add xquery support
-au! BufRead,BufNewFile *.xq     setfiletype xquery
-au! BufRead,BufNewFile *.xql    setfiletype xquery
-au! BufRead,BufNewFile *.xqm    setfiletype xquery
-au! BufRead,BufNewFile *.xquery setfiletype xquery
-au! BufRead,BufNewFile *.xqy    setfiletype xquery
-
 " scan the directory for help topics
 :helptags ~/.vim/doc
 
@@ -83,10 +76,10 @@ command W w !sudo tee % > /dev/null
 
 " K on a word find it's documentation (python)
 "map <buffer> K :execute "!pydoc " . expand("<cword>")<CR>
-map <F2> :set textwidth=80 <cr>
+"map <F2> :set textwidth=80 <cr>
 
 " Replace trailing spaces
-map <F3> :%s/\s\+$//<CR>:exe ":echo'trailing slashes removes'"<CR>
+"map <F3> :%s/\s\+$//<CR>:exe ":echo'trailing slashes removes'"<CR>
 "map <silent><F6> :QFix<CR>
 
 " edit vim quickly
@@ -154,15 +147,15 @@ let vala_comment_strings = 1
 "" Functions """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Highlight more than 80 columns lines on demand
-nnoremap <silent><F4>
-\    :if exists('w:long_line_match') <Bar>
-\        silent! call matchdelete(w:long_line_match) <Bar>
-\        unlet w:long_line_match <Bar>
-\    elseif &textwidth > 0 <Bar>
-\        let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
-\    else <Bar>
-\        let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
-\    endif<CR>
+"nnoremap <silent><F4>
+"\    :if exists('w:long_line_match') <Bar>
+"\        silent! call matchdelete(w:long_line_match) <Bar>
+"\        unlet w:long_line_match <Bar>
+"\    elseif &textwidth > 0 <Bar>
+"\        let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
+"\    else <Bar>
+"\        let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
+"\    endif<CR>
 
 "command -bang -nargs=? QFix call QFixToggle(<bang>0)
 

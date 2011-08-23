@@ -4,6 +4,9 @@ export ZSH=$HOME/.oh-my-zsh
 # activate 256 colors
 export TERM="xterm-256color"
 
+# editor
+export EDITOR="vim"
+
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 #export ZSH_THEME="bira"
@@ -16,14 +19,14 @@ export ZSH_THEME="sporty_256"
 # export CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+export DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git command-not-found vi-mode)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,35 +52,23 @@ bindkey "\eOd" backward-word
 bindkey "\eOc" forward-word
 
 # rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 #shortcut to live syslog
-alias syslog='tail -f /var/log/syslog'
-
-function to () {
-   if test "$2"; then
-     cd "$(apparix "$1" "$2" || echo .)";
-   else
-     cd "$(apparix "$1" || echo .)";
-   fi
-   pwd
-}
-function bm () {
-   if test "$2"; then
-      apparix --add-mark "$1" "$2";
-   elif test "$1"; then
-      apparix --add-mark "$1";
-   else
-      apparix --add-mark;
-   fi
-}
-function portal () {
-   if test "$1"; then
-      apparix --add-portal "$1";
-   else
-      apparix --add-portal;
-   fi
-}
+alias syslog='tail -f /var/log/messages.log'
 
 # personal bin dir
 export PATH=${PATH}:/home/joel/Softs/bin
+
+# personal aliases
+alias pacup='sudo pacman -Syu'
+alias pacin='sudo pacman -S'
+alias pacout='sudo pacman -Rns'
+alias pac='pacman -Ss'
+
+alias yup='yaourt -Syu --aur'
+alias yin='yaourt -S'
+alias yout='yaourt -Rns'
+alias y='yaourt -Ss'
+
+alias irc='ssh -p 20001 joel@lolnet.org'
