@@ -17,4 +17,4 @@ alias yin='yaourt -S'
 alias yout='yaourt -Rns'
 alias y='yaourt -Ss'
 
-alias irc='ssh -p 20001 joel@lolnet.org'
+source ~/.local_aliases
