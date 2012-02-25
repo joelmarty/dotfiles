@@ -28,7 +28,7 @@ au! BufRead,BufNewFile *.asc	setfiletype asciidoc
 colorscheme desert256
 syntax on                       " syntax highlighting
 filetype on                     " to consider filetypes
-filetype plugin on              " ... also in plugins
+filetype plugin indent on              " ... also in plugins
 set directory=~/.vim/swp        " store the .swp files in a specific path
 set expandtab                   " enter spaces when tab is pressed
 set tabstop=4                   " use 4 spaces to represent tab
