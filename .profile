@@ -17,4 +17,12 @@ alias yin='yaourt -S'
 alias yout='yaourt -Rns'
 alias y='yaourt -Ss'
 
+# local aliases
 source ~/.local_aliases
+
+# functions
+# make a ls after a cd.
+function cd () {
+  builtin cd "$@" && ls
+}
+
