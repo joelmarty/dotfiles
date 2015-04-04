@@ -1,10 +1,10 @@
 #!/bin/sh
 
-#shortcut to live syslog
-alias syslog='tail -f /var/log/messages.log'
+#shortcut to live journal
+alias log='journalctl -f'
 
 # personal bin dir
-export PATH=${PATH}:/home/joel/Softs/bin
+export PATH=${PATH}:/home/joel/bin
 
 # personal aliases
 alias pacup='sudo pacman -Syu'
