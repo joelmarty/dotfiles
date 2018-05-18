@@ -10,68 +10,40 @@
 
 HISTFILE=~/.zsh_history
 SAVEHIST=1000
-
-# touches de commandes
-bindkey -v
-#bindkey "\e[H" beginning-of-line # Début
-#bindkey "\e[F" end-of-line # Fin
-#bindkey "\e[3~" delete-char
-bindkey "^R" history-incremental-search-backward # Recherche
-#bindkey -M vicmd '?' history-incremental-search-backward
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
  
-# Complétion 
-autoload -U compinit
-compinit
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                             /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-# Crée un cache des complétion possibles
-# très utile pour les complétion qui demandent beaucoup de temps
-# comme la recherche d'un paquet aptitude install moz<tab>
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh_cache
-# des couleurs pour la complétion
-# faites un kill -9 <tab><tab> pour voir :)
-zmodload zsh/complist
-setopt extendedglob
-zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+source ~/.antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle git-extras
+antigen bundle history
+antigen bundle command-not-found
+antigen bundle common-aliases
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle docker
+antigen bundle npm
+antigen bundle systemd
+antigen bundle thefuck
+antigen bundle vi-mode
+antigen bundle z
+antigen bundle sudo
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle mvn
+
+# zsh-nvm handles nvm updates and stuff
+export NVM_LAZY_LOAD=true
+antigen bundle lukechilds/zsh-nvm
+
+# theme
+antigen theme agnoster
+
+antigen apply
  
-# Correction des commandes
-setopt correctall
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
-# history
-setopt inc_append_history
- 
-# prompt minimal avant de charger
-autoload -U promptinit
-promptinit
-prompt off
-[[ $- = *i* ]] && source /usr/bin/liquidprompt
- 
-# Les alias marchent comme sous bash
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -lh'
-alias lll='ls --color=auto -lh | less'
-alias yup='yaourt -Syua'
-alias y='yaourt'
-alias yin='yaourt -S'
-alias yout='yaourt -Rcns'
-# marre de se faire corriger par zsh ;)
-alias xs='cd'
-alias sl='ls'
-# Un grep avec des couleurs :
-export GREP_COLOR=31
-alias grep='grep --color=auto'
-export EDITOR=/usr/bin/vim
-
-alias mci='mvn clean install'
-alias mcist='mci -DskipTests'
-
-alias gpl='git pull'
-
-alias gplr='git pull --rebase'
-alias gph='git push'
-alias gs='git st'
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
