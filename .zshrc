@@ -37,13 +37,3 @@ antigen bundle lukechilds/zsh-nvm
 antigen theme agnoster
 
 antigen apply
- 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/jmarty/.nvm/versions/node/v9.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
